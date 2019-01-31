@@ -12,3 +12,17 @@ C:\_dev\REST-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netc
 C:\_dev\REST-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.RazorTargetAssemblyInfo.cache
 C:\_dev\REST-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.dll
 C:\_dev\REST-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.pdb
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\bin\Debug\netcoreapp2.1\RestASPNETCORE.deps.json
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\bin\Debug\netcoreapp2.1\RestASPNETCORE.runtimeconfig.json
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\bin\Debug\netcoreapp2.1\RestASPNETCORE.runtimeconfig.dev.json
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\bin\Debug\netcoreapp2.1\RestASPNETCORE.dll
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\bin\Debug\netcoreapp2.1\RestASPNETCORE.pdb
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.csprojAssemblyReference.cache
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.csproj.CoreCompileInputs.cache
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.RazorAssemblyInfo.cache
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.RazorAssemblyInfo.cs
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.AssemblyInfoInputs.cache
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.AssemblyInfo.cs
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.RazorTargetAssemblyInfo.cache
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.dll
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.pdb
