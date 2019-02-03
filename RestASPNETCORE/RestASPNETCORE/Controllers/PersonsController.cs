@@ -45,16 +45,16 @@ namespace RestASPNETCORE.Controllers
             return new ObjectResult(_personService.Create(person));
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/values/5
+        //[HttpPut("{id}")]
+        //public ActionResult Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
-        {
-        }
+        //// DELETE api/values/5
+        //[HttpDelete("{id}")]
+        //public ActionResult Delete(int id)
+        //{
+        //}
     }
 }
