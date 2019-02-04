@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 namespace RestASPNETCORE.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonsController : ControllerBase
     {
         private readonly IPersonService _personService;

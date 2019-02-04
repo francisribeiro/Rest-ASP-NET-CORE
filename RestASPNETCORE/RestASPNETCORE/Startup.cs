@@ -29,6 +29,9 @@ namespace RestASPNETCORE
             // Add MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            // API Versioning
+            services.AddApiVersioning();
+
             // Dependency Injection
             services.AddScoped<IPersonService, PersonServiceImpl>();
         }
