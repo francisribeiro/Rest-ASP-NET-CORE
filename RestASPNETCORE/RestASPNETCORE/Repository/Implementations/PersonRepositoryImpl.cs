@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestASPNETCORE.Services.Implementations
+namespace RestASPNETCORE.Repository.Implementations
 {
-    public class PersonServiceImpl : IPersonService
+    public class PersonRepositoryImpl : IPersonRepository
     {
         private MySQLContext _context;
 
-        public PersonServiceImpl(MySQLContext context)
+        public PersonRepositoryImpl(MySQLContext context)
         {
             _context = context;
         }
@@ -63,7 +63,9 @@ namespace RestASPNETCORE.Services.Implementations
 
         public Person Update(Person person)
         {
-            if (!Exists(person.Id)) return new Person();
+            if (!Exists(person.Id))
+                return null;
+
             var result = _context.Persons.SingleOrDefault(p => p.Id.Equals(person.Id));
 
             try
@@ -80,7 +82,7 @@ namespace RestASPNETCORE.Services.Implementations
             return person;
         }
 
-        private bool Exists(long? id)
+        public bool Exists(long? id)
         {
             return _context.Persons.Any(p => p.Id.Equals(id));
         }
