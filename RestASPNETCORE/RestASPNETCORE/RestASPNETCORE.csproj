@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="db\migrations\" />
-    <Folder Include="db\dataset\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
