@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 namespace RestASPNETCORE.Business.Implementations
 {
-    public class PersonBusinessImpl : IPersonBusiness
+    public class BookBusinessImpl : IBookBusiness
     {
-        private IRepository<Person> _repository;
+        private readonly IRepository<Book> _repository;
 
-        public PersonBusinessImpl(IRepository<Person> repository)
+        public BookBusinessImpl(IRepository<Book> repository)
         {
             _repository = repository;
         }
 
-        public Person Create(Person person)
+        public Book Create(Book book)
         {
-            return _repository.Create(person);
+            return _repository.Create(book);
         }
 
         public void Delete(long Id)
@@ -23,19 +23,19 @@ namespace RestASPNETCORE.Business.Implementations
             _repository.Delete(Id);
         }
 
-        public List<Person> FindAll()
+        public List<Book> FindAll()
         {
             return _repository.FindAll();
         }
 
-        public Person FindById(long Id)
+        public Book FindById(long Id)
         {
             return _repository.FindById(Id);
         }
 
-        public Person Update(Person person)
+        public Book Update(Book book)
         {
-            return _repository.Update(person);
+            return _repository.Update(book);
         }
     }
 }

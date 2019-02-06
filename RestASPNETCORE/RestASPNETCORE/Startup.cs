@@ -4,12 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RestASPNETCORE.Model.Context;
+using Microsoft.Extensions.Logging;
 using RestASPNETCORE.Business;
 using RestASPNETCORE.Business.Implementations;
+using RestASPNETCORE.Model.Context;
 using RestASPNETCORE.Repository;
+using RestASPNETCORE.Repository.Generic;
 using RestASPNETCORE.Repository.Implementations;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 
@@ -65,7 +66,11 @@ namespace RestASPNETCORE
 
             // Dependency Injection
             services.AddScoped<IPersonBusiness, PersonBusinessImpl>();
+            services.AddScoped<IBookBusiness, BookBusinessImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
+
+            // Dependency Injection of GenericRepository
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -24,7 +24,6 @@ namespace RestASPNETCORE.Repository.Implementations
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
@@ -46,7 +45,6 @@ namespace RestASPNETCORE.Repository.Implementations
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -75,7 +73,6 @@ namespace RestASPNETCORE.Repository.Implementations
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
