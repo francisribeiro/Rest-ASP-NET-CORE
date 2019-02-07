@@ -8,12 +8,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using RestASPNETCORE.Business;
 using RestASPNETCORE.Business.Implementations;
+using RestASPNETCORE.Hypermedia;
 using RestASPNETCORE.Model.Context;
 using RestASPNETCORE.Repository;
 using RestASPNETCORE.Repository.Generic;
 using RestASPNETCORE.Repository.Implementations;
 using System;
 using System.Collections.Generic;
+using Tapioca.HATEOAS;
 
 namespace RestASPNETCORE
 {
@@ -69,6 +71,12 @@ namespace RestASPNETCORE
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddXmlSerializerFormatters();
 
+            // HATEOAS
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ObjectContentResponseEnricherList.Add(new PersonEnricher());
+            filterOptions.ObjectContentResponseEnricherList.Add(new BookEnricher());
+            services.AddSingleton(filterOptions);
+
             // API Versioning
             services.AddApiVersioning();
 
@@ -94,7 +102,12 @@ namespace RestASPNETCORE
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                name: "DefaultApi",
+                template: "{controller=Values}/{id?}");
+            });
         }
     }
 }
