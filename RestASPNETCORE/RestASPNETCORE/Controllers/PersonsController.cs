@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RestASPNETCORE.Model;
 using RestASPNETCORE.Business;
-using System.Collections.Generic;
+using RestASPNETCORE.Data.VO;
 
 namespace RestASPNETCORE.Controllers
 {
@@ -38,7 +37,7 @@ namespace RestASPNETCORE.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] Person person)
+        public ActionResult Post([FromBody] PersonVO person)
         {
             if (person == null)
                 return BadRequest();
@@ -48,7 +47,7 @@ namespace RestASPNETCORE.Controllers
 
         // PUT api/values/5
         [HttpPut]
-        public ActionResult Put([FromBody]Person person)
+        public ActionResult Put([FromBody]PersonVO person)
         {
             if (person == null)
                 return BadRequest();

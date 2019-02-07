@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestASPNETCORE.Business;
-using RestASPNETCORE.Model;
+using RestASPNETCORE.Data.VO;
 
 namespace RestASPNETCORE.Controllers
 {
@@ -18,6 +18,7 @@ namespace RestASPNETCORE.Controllers
 
         // GET api/values
         [HttpGet]
+
         public ActionResult Get()
         {
             return Ok(_bookBusiness.FindAll());
@@ -37,7 +38,7 @@ namespace RestASPNETCORE.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody]Book book)
+        public ActionResult Post([FromBody]BookVO book)
         {
             if (book == null)
                 return BadRequest();
@@ -47,7 +48,7 @@ namespace RestASPNETCORE.Controllers
 
         // PUT api/values/5
         [HttpPut]
-        public ActionResult Put([FromBody]Book book)
+        public ActionResult Put([FromBody]BookVO book)
         {
             if (book == null)
                 return BadRequest();
