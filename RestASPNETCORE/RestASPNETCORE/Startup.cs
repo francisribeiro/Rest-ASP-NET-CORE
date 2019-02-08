@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,7 @@ using RestASPNETCORE.Model.Context;
 using RestASPNETCORE.Repository;
 using RestASPNETCORE.Repository.Generic;
 using RestASPNETCORE.Repository.Implementations;
+using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
 using Tapioca.HATEOAS;
@@ -65,8 +67,8 @@ namespace RestASPNETCORE
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
-                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("text/xml"));
                 options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("text/xml"));
             })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddXmlSerializerFormatters();
@@ -79,6 +81,12 @@ namespace RestASPNETCORE
 
             // API Versioning
             services.AddApiVersioning();
+
+            // Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "RESTful API", Version = "v1" });
+            });
 
             // Dependency Injection
             services.AddScoped<IPersonBusiness, PersonBusinessImpl>();
@@ -108,6 +116,16 @@ namespace RestASPNETCORE
                 name: "DefaultApi",
                 template: "{controller=Values}/{id?}");
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+            app.UseRewriter(option);
         }
     }
 }
