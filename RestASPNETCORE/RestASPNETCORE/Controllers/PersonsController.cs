@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RestASPNETCORE.Business;
 using RestASPNETCORE.Data.VO;
+using System.Collections.Generic;
 using Tapioca.HATEOAS;
 
 namespace RestASPNETCORE.Controllers
@@ -19,6 +20,10 @@ namespace RestASPNETCORE.Controllers
 
         // GET api/values
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get()
         {
@@ -27,6 +32,10 @@ namespace RestASPNETCORE.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get(int id)
         {
@@ -40,6 +49,9 @@ namespace RestASPNETCORE.Controllers
 
         // POST api/values
         [HttpPost]
+        [ProducesResponseType((201), Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Post([FromBody] PersonVO person)
         {
@@ -51,6 +63,9 @@ namespace RestASPNETCORE.Controllers
 
         // PUT api/values/5
         [HttpPut]
+        [ProducesResponseType((202), Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Put([FromBody]PersonVO person)
         {
@@ -67,6 +82,9 @@ namespace RestASPNETCORE.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Delete(int id)
         {
