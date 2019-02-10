@@ -20,7 +20,7 @@ namespace RestASPNETCORE.Controllers
         // POST api/values
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Post([FromBody] User user)
+        public object Post([FromBody] User user)
         {
             if (user == null)
                 return BadRequest();

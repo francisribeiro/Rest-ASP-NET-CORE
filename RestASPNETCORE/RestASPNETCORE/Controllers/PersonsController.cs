@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RestASPNETCORE.Business;
 using RestASPNETCORE.Data.VO;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace RestASPNETCORE.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get()
         {
@@ -36,6 +38,7 @@ namespace RestASPNETCORE.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get(int id)
         {
@@ -52,6 +55,7 @@ namespace RestASPNETCORE.Controllers
         [ProducesResponseType((201), Type = typeof(PersonVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Post([FromBody] PersonVO person)
         {
@@ -66,6 +70,7 @@ namespace RestASPNETCORE.Controllers
         [ProducesResponseType((202), Type = typeof(PersonVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Put([FromBody]PersonVO person)
         {
@@ -85,6 +90,7 @@ namespace RestASPNETCORE.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Delete(int id)
         {
