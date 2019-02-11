@@ -1,17 +1,16 @@
 ﻿using RestASPNETCORE.Data.Converters;
 using RestASPNETCORE.Data.VO;
-using RestASPNETCORE.Model;
-using RestASPNETCORE.Repository.Generic;
+using RestASPNETCORE.Repository;
 using System.Collections.Generic;
 
 namespace RestASPNETCORE.Business.Implementations
 {
     public class PersonBusinessImpl : IPersonBusiness
     {
-        private readonly IRepository<Person> _repository;
+        private readonly IPersonRepository _repository;
         private readonly PersonConverter _converter;
 
-        public PersonBusinessImpl(IRepository<Person> repository)
+        public PersonBusinessImpl(IPersonRepository repository)
         {
             _repository = repository;
             _converter = new PersonConverter();
@@ -38,6 +37,11 @@ namespace RestASPNETCORE.Business.Implementations
         public PersonVO FindById(long Id)
         {
             return _converter.Parse(_repository.FindById(Id));
+        }
+
+        public List<PersonVO> FindByName(string firstname, string lastname)
+        {
+            return _converter.ParseList(_repository.FindByName(firstname, lastname));
         }
 
         public PersonVO Update(PersonVO person)

@@ -123,6 +123,7 @@ namespace RestASPNETCORE
             services.AddScoped<IUserBusiness, UserBusinessImpl>();
 
             services.AddScoped<IUserRepository, UserRepositoryImpl>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
 
             // Dependency Injection of GenericRepository
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));

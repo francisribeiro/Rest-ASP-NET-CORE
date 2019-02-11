@@ -12,27 +12,37 @@ namespace RestASPNETCORE.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonsController : ControllerBase
     {
-        private readonly IPersonBusiness _personBusiness;
+        private IPersonBusiness _personBusiness;
 
         public PersonsController(IPersonBusiness personBusiness)
         {
             _personBusiness = personBusiness;
         }
 
-        // GET api/values
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public ActionResult Get()
+        public IActionResult Get()
         {
-            return Ok(_personBusiness.FindAll());
+            return new OkObjectResult(_personBusiness.FindAll());
         }
 
-        // GET api/values/5
+        [HttpGet("find-by-name")]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get([FromQuery] string firstName, [FromQuery] string lastName)
+        {
+            return new OkObjectResult(_personBusiness.FindByName(firstName, lastName));
+        }
+
         [HttpGet("{id}")]
         [ProducesResponseType((200), Type = typeof(PersonVO))]
         [ProducesResponseType(204)]
@@ -40,59 +50,46 @@ namespace RestASPNETCORE.Controllers
         [ProducesResponseType(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public ActionResult Get(int id)
+        public IActionResult Get(long id)
         {
             var person = _personBusiness.FindById(id);
-
-            if (person == null)
-                return NotFound();
-
-            return Ok(person);
+            if (person == null) return NotFound();
+            return new OkObjectResult(person);
         }
 
-        // POST api/values
         [HttpPost]
         [ProducesResponseType((201), Type = typeof(PersonVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public ActionResult Post([FromBody] PersonVO person)
+        public IActionResult Post([FromBody]PersonVO person)
         {
-            if (person == null)
-                return BadRequest();
-
-            return new ObjectResult(_personBusiness.Create(person));
+            if (person == null) return BadRequest();
+            return new OkObjectResult(_personBusiness.Create(person));
         }
 
-        // PUT api/values/5
         [HttpPut]
         [ProducesResponseType((202), Type = typeof(PersonVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public ActionResult Put([FromBody]PersonVO person)
+        public IActionResult Put([FromBody]PersonVO person)
         {
-            if (person == null)
-                return BadRequest();
-
-            var updatePerson = _personBusiness.Update(person);
-
-            if (updatePerson == null)
-                return NoContent();
-
-            return new ObjectResult(_personBusiness.Update(person));
+            if (person == null) return BadRequest();
+            var updatedPerson = _personBusiness.Update(person);
+            if (updatedPerson == null) return BadRequest();
+            return new OkObjectResult(updatedPerson);
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public ActionResult Delete(int id)
+        [Authorize("Bearer")]
+        public IActionResult Delete(int id)
         {
             _personBusiness.Delete(id);
             return NoContent();
