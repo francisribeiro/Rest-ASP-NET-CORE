@@ -43,6 +43,18 @@ namespace RestASPNETCORE.Controllers
             return new OkObjectResult(_personBusiness.FindByName(firstName, lastName));
         }
 
+        [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetPagedSearch([FromQuery] string name, string sortDirection, int pageSize, int page)
+        {
+            return new OkObjectResult(_personBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
+        }
+
         [HttpGet("{id}")]
         [ProducesResponseType((200), Type = typeof(PersonVO))]
         [ProducesResponseType(204)]

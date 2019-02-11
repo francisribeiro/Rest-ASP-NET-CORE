@@ -66,6 +66,29 @@ namespace RestASPNETCORE.Repository.Generic
             return dataset.SingleOrDefault(p => p.Id.Equals(Id));
         }
 
+        public List<T> FindWithPagedSearch(string query)
+        {
+            return dataset.FromSql<T>(query).ToList();
+        }
+
+        public int GetCount(string query)
+        {
+            var result = "";
+
+            using (var connection = _context.Database.GetDbConnection())
+            {
+                connection.Open();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    result = command.ExecuteScalar().ToString();
+                }
+            }
+
+            return Int32.Parse(result);
+        }
+
         public T Update(T item)
         {
             if (!Exists(item.Id)) return null;
