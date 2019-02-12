@@ -1,7 +1,7 @@
 {
   "Evolve.Driver": "MySQL.Data",
-  "Evolve.ConnectionString": "Server=localhost;Port=3306;Database=rest_asp_net;Uid=root;Pwd=root;SslMode=none;",
+  "Evolve.ConnectionString": "Server=localhost;Port=3306;Database=rest_asp_net;Uid=docker;Pwd=docker;SslMode=none;",
   "Evolve.Locations": "db",
-  "Evolve.Command": "migrate",
+  "Evolve.Command": "",
   "Evolve.Placeholder.table4": "table_4"
 }

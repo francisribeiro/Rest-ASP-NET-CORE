@@ -40,3 +40,4 @@ C:\_dev\Rest-ASP-NET-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\De
 C:\_dev\Rest-ASP-NET-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.dll
 C:\_dev\Rest-ASP-NET-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.pdb
 C:\_dev\Rest-ASP-NET-CORE\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\RestASPNETCORE.csprojAssemblyReference.cache
+C:\_dev\Rest-ASP-NET-CORE\RestASPNETCORE\RestASPNETCORE\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
