@@ -121,6 +121,7 @@ namespace RestASPNETCORE
             services.AddScoped<IPersonBusiness, PersonBusinessImpl>();
             services.AddScoped<IBookBusiness, BookBusinessImpl>();
             services.AddScoped<IUserBusiness, UserBusinessImpl>();
+            services.AddScoped<IFileBusiness, FileBusinessImpl>();
 
             services.AddScoped<IUserRepository, UserRepositoryImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
