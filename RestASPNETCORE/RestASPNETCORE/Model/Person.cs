@@ -1,7 +1,9 @@
 ﻿using RestASPNETCORE.Model.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestASPNETCORE.Model
 {
+    [Table("persons")]
     public class Person : BaseEntity
     {
         public string FirstName { get; set; }

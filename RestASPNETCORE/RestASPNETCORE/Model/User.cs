@@ -1,5 +1,8 @@
-﻿namespace RestASPNETCORE.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RestASPNETCORE.Model
 {
+    [Table("users")]
     public class User
     {
         public long? Id { get; set; }

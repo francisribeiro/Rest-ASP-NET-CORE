@@ -1,8 +1,10 @@
 ﻿using RestASPNETCORE.Model.Base;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestASPNETCORE.Model
 {
+    [Table("books")]
     public class Book : BaseEntity
     {
         public string Title { get; set; }
